@@ -25,6 +25,10 @@ A sequência comum mais longa é `ae`
 Tempo de execução (recursivo): `0.003000 segundos`
 
 ---
+As cadeias de DNA são compostas por uma sequência de nucleotídeos representados pelas letras A (adenina), T (timina), G (guanina) e C (citosina). O comprimento de uma cadeia de DNA pode variar bastante, dependendo do organismo. Por exemplo:
+
+Células humanas: O DNA humano tem aproximadamente 3 bilhões de pares de bases (cerca de 3 gigabases, ou 3 Gb).
+Bactérias: O DNA de uma bactéria pode ter cerca de 1 a 5 milhões de pares de bases.
 
 ### **Entradas Teste**  
 
