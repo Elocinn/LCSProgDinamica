@@ -30,6 +30,8 @@ As cadeias de DNA são compostas por uma sequência de nucleotídeos representad
 Células humanas: O DNA humano tem aproximadamente 3 bilhões de pares de bases (cerca de 3 gigabases, ou 3 Gb).
 Bactérias: O DNA de uma bactéria pode ter cerca de 1 a 5 milhões de pares de bases.
 
+Diante os arquivos FASTA utilizado no teste estão disponíveis no repositório GenBank da National Center for Biotechnology Information (NCBI), acessível através de https://www.ncbi.nlm.nih.gov/nucleotide/."
+
 ### **Entradas Teste**  
 
 - **50 caracteres**:  
