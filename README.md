@@ -3,11 +3,17 @@
 Este projeto implementa o problema da **Subsequência Comum Mais Longa (LCS)** de duas formas diferentes:  
 **Programação Dinâmica**: Uma abordagem eficiente, utilizando uma tabela para armazenar subproblemas resolvidos.  
 **Recursiva**: Uma abordagem direta e intuitiva, porém extremamente ineficiente para entradas grandes.  
+**Força Bruta**: Uma abordagem exaustiva que tenta todas as combinações possíveis para encontrar a solução.
 
-O objetivo é demonstrar a diferença de desempenho entre as duas estratégias.
+O objetivo é demonstrar a diferença de desempenho entre as três estratégias.
 
+
+## **O que faz?**
+
+- São três códigos que implementam o algoritmo de LCS (Longest Common Subsequence) usando abordagens diferentes: Programação Dinâmica, Recursiva e Força Bruta.
+- O usuário tem duas opções de entrada: utilizar sequências de DNA pré-definidas em arquivos FASTA ou inserir suas próprias sequências manualmente.
+- Utilize este projeto para analisar e comparar o desempenho e o tempo de execução de cada abordagem.
 ---
-
 **Descrição do Problema**  
 
 Dadas duas sequências de caracteres, o problema é determinar:  
@@ -19,18 +25,12 @@ Dadas duas sequências de caracteres, o problema é determinar:
 Digite a primeira string: `aegvaweifj`  
 Digite a segunda string: `aenoerihao`  
 
-**Saída**:  
+**Saída (recursivo)**:  
 Comprimento da sequência comum mais longa é  `2`  
 A sequência comum mais longa é `ae`  
-Tempo de execução (recursivo): `0.003000 segundos`
+Tempo de execução: `0.003000 segundos`
 
 ---
-As cadeias de DNA são compostas por uma sequência de nucleotídeos representados pelas letras A (adenina), T (timina), G (guanina) e C (citosina). O comprimento de uma cadeia de DNA pode variar bastante, dependendo do organismo. Por exemplo:
-
-Células humanas: O DNA humano tem aproximadamente 3 bilhões de pares de bases (cerca de 3 gigabases, ou 3 Gb).
-Bactérias: O DNA de uma bactéria pode ter cerca de 1 a 5 milhões de pares de bases.
-
-Diante os arquivos FASTA utilizado no teste estão disponíveis no repositório GenBank da National Center for Biotechnology Information (NCBI), acessível através de https://www.ncbi.nlm.nih.gov/nucleotide/."
 
 ### **Entradas Teste**  
 
@@ -65,6 +65,10 @@ Diante os arquivos FASTA utilizado no teste estão disponíveis no repositório 
 - **Complexidade**: Exponencial, O(2^(min(m, n))).  
 - **Propósito**: Mostrar como a abordagem recursiva direta é inadequada para problemas como LCS.  
 
+### **Força Bruta**  
+- **Desempenho**: Muito lento para entradas grandes.  
+- **Complexidade**: Exponencial, O(2^m * n), onde m é o tamanho da primeira sequência e n é o tamanho da segunda sequência.  
+- **Propósito**: Demonstrar a abordagem mais simples e direta, mas ineficiente, para resolver o problema de LCS.
 ---
 
 ## **Observações**  
@@ -73,4 +77,3 @@ Diante os arquivos FASTA utilizado no teste estão disponíveis no repositório 
 - **Atenção com a abordagem recursiva**: Pode demorar ***muito*** tempo para entradas grandes, mas isso faz parte do objetivo deste projeto.  
 
 05/12/2024
-
