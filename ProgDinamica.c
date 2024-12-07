@@ -50,16 +50,57 @@ Se compr for maior que 0, a sequência comum mais longa é copiada de s1 para lc
     lcs_str[compr] = '\0'; 
 }
 
+void read_fasta_sequence(const char *filename, char *sequence, int max_length) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        perror("Erro ao abrir o arquivo");
+        return;
+    }
+
+    char line[1000];
+    int length = 0;
+    while (fgets(line, sizeof(line), file) && length < max_length) {
+        if (line[0] != '>') {
+            line[strcspn(line, "\n")] = '\0'; // Remove o caractere de nova linha
+            strncat(sequence, line, max_length - length);
+            length += strlen(line);
+        }
+    }
+
+    fclose(file);
+}
+
 int main() {
     setlocale(LC_ALL, "");
-    char s1[100];
-    char s2[100];
+    char s1[1000] = "";
+    char s2[1000] = "";
+    int choice;
 
-    printf("Digite a primeira string: ");
-    scanf("%s", s1);
+    while (1) {
+        printf("\nMenu:\n");
+        printf("1. Comparar sequências de DNA pré-registradas\n");
+        printf("2. Inserir suas próprias sequências de DNA\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &choice);
 
-    printf("Digite a segunda string: ");
-    scanf("%s", s2);
+     switch (choice) {
+        case 1:
+            read_fasta_sequence("sequence1.fasta", s1, 500);
+            read_fasta_sequence("sequence2.fasta", s2, 500);
+            break;
+        case 2:
+            printf("Digite a primeira sequência de DNA: ");
+            scanf("%s", s1);
+            printf("Digite a segunda sequência de DNA: ");
+            scanf("%s", s2);
+            break;
+        case 3:
+            return 0;
+        default:
+            printf("Opção inválida. Tente novamente.\n");
+            continue;
+    }  
 
     int m = strlen(s1);
     int n = strlen(s2);
@@ -75,6 +116,5 @@ int main() {
     printf("Comprimento da sequência comum mais longa é %d\n", (int)strlen(lcs_str));
     printf("A sequência comum mais longa é %s\n", lcs_str);
     printf("Tempo de execução (programação dinâmica): %f segundos\n", time_taken);
-
-    return 0;
+    }
 }
