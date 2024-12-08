@@ -3,14 +3,15 @@
 Este projeto implementa o problema da **Subsequência Comum Mais Longa (LCS)** de duas formas diferentes:  
 **Programação Dinâmica**: Uma abordagem eficiente, utilizando uma tabela para armazenar subproblemas resolvidos.  
 **Recursiva**: Uma abordagem direta e intuitiva, porém extremamente ineficiente para entradas grandes.  
-**Força Bruta**: Uma abordagem exaustiva que tenta todas as combinações possíveis para encontrar a solução.
 
-O objetivo é demonstrar a diferença de desempenho entre as três estratégias.
+~~Força Bruta**: Uma abordagem exaustiva que tenta todas as combinações possíveis para encontrar a solução.~~
+
+O objetivo é demonstrar a diferença de desempenho entre as duas estratégias.
 
 
 ## **O que faz?**
 
-- São três códigos que implementam o algoritmo de LCS (Longest Common Subsequence) usando abordagens diferentes: Programação Dinâmica, Recursiva e Força Bruta.
+- São dois códigos que implementam o algoritmo de LCS (Longest Common Subsequence) usando abordagens diferentes: Programação Dinâmica, Recursiva ~~e Força Bruta~~.
 - O usuário tem duas opções de entrada: utilizar sequências de DNA pré-definidas em arquivos FASTA ou inserir suas próprias sequências manualmente.
 - Utilize este projeto para analisar e comparar o desempenho e o tempo de execução de cada abordagem.
 ---
@@ -65,10 +66,10 @@ Tempo de execução: `0.003000 segundos`
 - **Complexidade**: Exponencial, O(2^(min(m, n))).  
 - **Propósito**: Mostrar como a abordagem recursiva direta é inadequada para problemas como LCS.  
 
-### **Força Bruta**  
-- **Desempenho**: Muito lento para entradas grandes.  
-- **Complexidade**: Exponencial, O(2^m * n), onde m é o tamanho da primeira sequência e n é o tamanho da segunda sequência.  
-- **Propósito**: Demonstrar a abordagem mais simples e direta, mas ineficiente, para resolver o problema de LCS.
+~~### **Força Bruta**~~
+~~- **Desempenho**: Muito lento para entradas grandes.~~  
+~~- **Complexidade**: Exponencial, O(2^m * n), onde m é o tamanho da primeira sequência e n é o tamanho da segunda sequência.~~  
+~~- **Propósito**: Demonstrar a abordagem mais simples e direta, mas ineficiente, para resolver o problema de LCS.~~
 ---
 
 ## **Observações**  
