@@ -8,40 +8,36 @@ s1: primeira string
 s2: segunda string
 m: comprimento da primeira string
 n: comprimento da segunda string
-verifica se a string s1 é uma subsequência da string s2
+verifica se a string s1 é uma sequência da string s2
 */
-int is_subsequence(char *s1, char *s2, int m, int n) {
-    int j = 0;
-    for (int i = 0; i < n && j < m; i++) {
-        if (s1[j] == s2[i]) {
-            j++;
-        }
-    }
-    return j == m;
-}
 
-/*
-abordagem de força bruta
-Ela gera todas as possíveis subsequências de s1 e verifica se cada uma delas é uma subsequência de s2, armazenando em lcs_str
-max_len para armazenar o comprimento
-*/
 int longest_common_sequence(char *s1, char *s2, int m, int n, char *lcs_str) {
     int max_len = 0;
+    int end_pos = 0; 
+    lcs_str[0] = '\0';
+/*
+abordagem de força bruta
+Ela gera todas as possíveis sequências de s1 e verifica se cada uma delas é umasequência de s2, armazenando em lcs_str
+max_len para armazenar o comprimento
+*/
 
-    for (int i = 0; i < (1 << m); i++) {
-        char subseq[m + 1];
-        int k = 0;
-        for (int j = 0; j < m; j++) {
-            if (i & (1 << j)) {
-                subseq[k++] = s1[j];
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            int len = 0;
+            while (i + len < m && j + len < n && s1[i + len] == s2[j + len]) {
+                len++;
+            }
+
+            if (len > max_len) {
+                max_len = len;
+                end_pos = i + len - 1;  
             }
         }
-        subseq[k] = '\0';
+    }
 
-        if (is_subsequence(subseq, s2, k, n) && k > max_len) {
-            max_len = k;
-            strcpy(lcs_str, subseq);
-        }
+    if (max_len > 0) {
+        strncpy(lcs_str, s1 + end_pos - max_len + 1, max_len);
+        lcs_str[max_len] = '\0'; 
     }
 
     return max_len;
@@ -74,11 +70,11 @@ int main() {
     int choice;
 
     while (1) {
-        printf("Menu:\n");
-        printf("1. Comparar sequências de DNA pré-registradas\n");
-        printf("2. Inserir suas próprias sequências de DNA\n");
+        printf("\nMenu:\n");
+        printf("1. Comparar sequencias de DNA pre-registradas\n");
+        printf("2. Inserir suas proprias sequencias de DNA\n");
         printf("3. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opcao: ");
         scanf("%d", &choice);
 
         switch (choice) {
@@ -87,15 +83,15 @@ int main() {
                 read_fasta_sequence("sequence2.fasta", s2, 500);
                 break;
             case 2:
-                printf("Digite a primeira sequência de DNA: ");
+                printf("Digite a primeira sequencia de DNA: ");
                 scanf("%s", s1);
-                printf("Digite a segunda sequência de DNA: ");
+                printf("Digite a segunda sequencia de DNA: ");
                 scanf("%s", s2);
                 break;
             case 3:
                 return 0;
             default:
-                printf("Opção inválida. Tente novamente.\n");
+                printf("Opcao invalida. Tente novamente.\n");
                 continue;
         }
 
@@ -110,8 +106,8 @@ int main() {
 
     double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    printf("Comprimento da subsequência comum mais longa é %d\n", compr);
-    printf("A subsequência comum mais longa é %s\n", lcs_str);
-    printf("Tempo de execução (força bruta): %0.10f segundos\n", time_taken);
+    printf("Comprimento da sequencia comum mais longa e '%d'\n", (int)strlen(lcs_str));
+    printf("A sequencia comum mais longa e '%s'\n", lcs_str);
+    printf("Tempo de execucao (forca bruta): %0.10f segundos\n", time_taken);
     }
 }
