@@ -13,7 +13,7 @@ lcs_str: string que armazena a sequência comum mais longa
 void longest_common_sequence(char *s1, char *s2, int m, int n, char *lcs_str) {
 
 /*
-matriz: armazenar os comprimentos das substrings comuns
+matriz: armazenar os comprimentos das strings comuns
 compr: inicializado como 0 e será usado para armazenar o comprimento da sequência comum mais longa encontrada
 end_index: armazenar o índice final da sequência comum mais longa
 */
@@ -78,10 +78,10 @@ int main() {
 
     while (1) {
         printf("\nMenu:\n");
-        printf("1. Comparar sequências de DNA pré-registradas\n");
-        printf("2. Inserir suas próprias sequências de DNA\n");
+        printf("1. Comparar sequencias de DNA pre-registradas\n");
+        printf("2. Inserir suas proprias sequencias de DNA\n");
         printf("3. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opcao: ");
         scanf("%d", &choice);
 
      switch (choice) {
@@ -90,15 +90,15 @@ int main() {
             read_fasta_sequence("sequence2.fasta", s2, 500);
             break;
         case 2:
-            printf("Digite a primeira sequência de DNA: ");
+            printf("Digite a primeira sequencia de DNA: ");
             scanf("%s", s1);
-            printf("Digite a segunda sequência de DNA: ");
+            printf("Digite a segunda sequencia de DNA: ");
             scanf("%s", s2);
             break;
         case 3:
             return 0;
         default:
-            printf("Opção inválida. Tente novamente.\n");
+            printf("Opcao invalida. Tente novamente.\n");
             continue;
     }  
 
@@ -113,8 +113,8 @@ int main() {
 
     double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    printf("Comprimento da sequência comum mais longa é %d\n", (int)strlen(lcs_str));
-    printf("A sequência comum mais longa é %s\n", lcs_str);
-    printf("Tempo de execução (programação dinâmica): %f segundos\n", time_taken);
+    printf("Comprimento da sequencia comum mais longa e '%d'\n", (int)strlen(lcs_str));
+    printf("A sequencia comum mais longa e '%s'\n", lcs_str);
+    printf("Tempo de execucao (programacao dinamica): %f segundos\n", time_taken);
     }
 }
